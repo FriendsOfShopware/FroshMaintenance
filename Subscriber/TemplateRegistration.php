@@ -6,7 +6,6 @@ use Enlight\Event\SubscriberInterface;
 
 /**
  * Class TemplateRegistration
- * @package FroshMaintenance\Subscriber
  */
 class TemplateRegistration implements SubscriberInterface
 {
@@ -22,14 +21,14 @@ class TemplateRegistration implements SubscriberInterface
 
     /**
      * TemplateRegistration constructor.
+     *
      * @param $pluginDirectory
      * @param \Enlight_Template_Manager $templateManager
      */
     public function __construct(
         $pluginDirectory,
         \Enlight_Template_Manager $templateManager
-    )
-    {
+    ) {
         $this->pluginDirectory = $pluginDirectory;
         $this->templateManager = $templateManager;
     }

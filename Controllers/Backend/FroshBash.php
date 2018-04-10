@@ -10,7 +10,7 @@ class Shopware_Controllers_Backend_FroshBash extends Shopware_Controllers_Backen
     public function getWhitelistedCSRFActions()
     {
         return [
-            'getShellInfo'
+            'getShellInfo',
         ];
     }
 
@@ -19,9 +19,9 @@ class Shopware_Controllers_Backend_FroshBash extends Shopware_Controllers_Backen
         $this->View()->assign('froshBashShopwareRoot', $this->container->getParameter('kernel.root_dir'));
     }
 
-    public function indexAction() 
+    public function indexAction()
     {
-        $this->View()->loadTemplate("backend/frosh_bash/app.js");
+        $this->View()->loadTemplate('backend/frosh_bash/app.js');
     }
 
     public function getShellInfoAction()
@@ -30,31 +30,27 @@ class Shopware_Controllers_Backend_FroshBash extends Shopware_Controllers_Backen
         $path = $this->Request()->getPost('path');
 
         if ($cmd) {
-            $output = preg_split('/[\n]/', shell_exec($cmd . " 2>&1"));
+            $output = preg_split('/[\n]/', shell_exec($cmd . ' 2>&1'));
 
             foreach ($output as $line) {
-                echo htmlentities($line, ENT_QUOTES | ENT_HTML5, 'UTF-8') . "<br>";
+                echo htmlentities($line, ENT_QUOTES | ENT_HTML5, 'UTF-8') . '<br>';
             }
 
             die();
-        }
-        else if (!empty($_FILES['file']['tmp_name']) && !empty($path)) {
-            $filename = $_FILES["file"]["name"];
+        } elseif (!empty($_FILES['file']['tmp_name']) && !empty($path)) {
+            $filename = $_FILES['file']['name'];
 
-            if ($path != "/") {
-                $path .= "/";
+            if ($path != '/') {
+                $path .= '/';
             }
 
-            if (move_uploaded_file($_FILES["file"]["tmp_name"], $path . $filename)) {
-                echo htmlentities($filename) . " successfully uploaded to " . htmlentities($path);
-            }
-            else {
-                echo "Error uploading " . htmlentities($filename);
+            if (move_uploaded_file($_FILES['file']['tmp_name'], $path . $filename)) {
+                echo htmlentities($filename) . ' successfully uploaded to ' . htmlentities($path);
+            } else {
+                echo 'Error uploading ' . htmlentities($filename);
             }
 
             die();
         }
     }
-    
 }
-

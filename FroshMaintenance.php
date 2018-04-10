@@ -3,15 +3,13 @@
 namespace FroshMaintenance;
 
 use Shopware\Components\Plugin;
-use Shopware\Components\Plugin\Context\UninstallContext;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Shopware\Components\Plugin\Context\ActivateContext;
 use Shopware\Components\Plugin\Context\InstallContext;
 use Shopware\Components\Plugin\Context\UpdateContext;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**
  * Class FroshMaintenance
- * @package FroshMaintenance
  */
 class FroshMaintenance extends Plugin
 {

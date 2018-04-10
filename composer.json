@@ -1,0 +1,13 @@
+{
+  "name": "frosh/frosh-maintenance",
+  "keywords": ["console", "command", "bash", "admin", "maintenance", "development", "shopware", "shopware-plugin"],
+  "description": "Maintenance tools for Shopware",
+  "license": "MIT",
+  "type": "shopware-plugin",
+  "extra": {
+    "installer-name": "FroshMaintenance"
+  },
+  "require": {
+    "composer/installers": "~1.0"
+  }
+}

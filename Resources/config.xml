@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../../../../engine/Shopware/Components/Plugin/schema/config.xsd">
+    <elements>
+        <element type="textarea">
+            <name>froshBashStylesheet</name>
+            <label lang="de">Kommandozeile Stylesheet</label>
+            <label lang="en">Command Line Stylesheet</label>
+            <value><![CDATA[.console-container {
+    margin: 0;
+    background: #000;
+    font-family: monospace;
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 20px;
+    overflow: hidden;
+}
+div.console {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    position: absolute;
+    color: #fff;
+    overflow: hidden;
+}
+div.output {
+    position: absolute;
+    overflow-y: scroll;
+    top: 0;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    line-height: 20px;
+    padding: 10px 0 0 10px;
+    white-space: pre-wrap;
+}
+div.username {
+    float: left;
+    height: 20px;
+    line-height: 20px;
+}
+div.input {
+    border-top: 1px solid #333333;
+    width: 100%;
+    height: 20px;
+    position: absolute;
+    bottom: 0;
+    padding-left: 10px;
+}
+input.inputtext {
+    float: left;
+    height: 20px;
+    background: #000;
+    border: 0;
+    padding-left: 8px;
+    color: #fff;
+    font-family: monospace;
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+input.inputtext:focus {
+    outline: none;
+}
+div.console ::-webkit-scrollbar {
+    width: 12px;
+}
+div.console ::-webkit-scrollbar-track {
+    background: #101010;
+}
+div.console ::-webkit-scrollbar-thumb {
+    background: #303030;
+}]]></value>
+            <options>
+                <xtype>codemirror</xtype>
+                <mode>css</mode>
+                <height>300</height>
+            </options>
+        </element>
+        <element type="textarea">
+            <name>froshBashPrompt</name>
+            <label lang="de">Kommandozeile Prompt</label>
+            <label lang="en">Command Line Prompt</label>
+            <value><![CDATA[<div style="color:#ff0000; float: left;">{username}@{hostname}</div>
+<div style="float: left;">:{dir}#<tpl if="command"> {command}</tpl></div>]]></value>
+            <options>
+                <xtype>codemirror</xtype>
+                <mode>htmlmixed</mode>
+                <height>300</height>
+            </options>
+        </element>
+    </elements>
+</config>

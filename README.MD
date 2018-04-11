@@ -4,7 +4,7 @@
 
 This plugin adds command line window (semi-interactive web shell) to the Shopware backend.
 
-![Bash](http://davidneustadt.de/web/upload/bash.gif)
+![Bash](https://davidneustadt.de/web/upload/bash.gif)
 
 It's based on [phpbash](https://github.com/Arrexel/phpbash) by [Arrexel](https://github.com/Arrexel)
 

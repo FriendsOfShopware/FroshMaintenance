@@ -10,5 +10,8 @@
             <argument type="service" id="template"/>
             <tag name="shopware.event_subscriber"/>
         </service>
+        <service id="frosh_maintenance.reset" class="FroshMaintenance\Components\ResetService">
+            <argument type="service" id="dbal_connection" />
+        </service>
     </services>
 </container>

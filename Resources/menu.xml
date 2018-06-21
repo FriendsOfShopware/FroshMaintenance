@@ -10,5 +10,14 @@
             <class>sprite-cards-stack settings--logfile</class>
             <parent identifiedBy="controller">ConfigurationMenu</parent>
         </entry>
+        <entry>
+            <name>Reset</name>
+            <label lang="en">Reset</label>
+            <label lang="de">Reset</label>
+            <controller>FroshReset</controller>
+            <action>index</action>
+            <class>sprite-arrow-circle-225-left</class>
+            <parent identifiedBy="controller">ConfigurationMenu</parent>
+        </entry>
     </entries>
 </menu>

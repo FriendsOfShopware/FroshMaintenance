@@ -2,13 +2,25 @@
 <menu xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../engine/Shopware/Components/Plugin/schema/menu.xsd">
     <entries>
         <entry>
-            <name>Command Line</name>
-            <label lang="en">Command Line</label>
-            <label lang="de">Kommandozeile</label>
-            <controller>FroshBash</controller>
+            <name>Maintenance</name>
+            <label lang="en">Maintenance</label>
+            <label lang="de">Wartung</label>
+            <controller>FroshMaintenance</controller>
             <action>index</action>
-            <class>sprite-cards-stack settings--logfile</class>
+            <class>sprite-gear</class>
             <parent identifiedBy="controller">ConfigurationMenu</parent>
+            <onclick>event.preventDefault()</onclick>
+            <children>
+                <entry>
+                    <name>Command Line</name>
+                    <label lang="en">Command Line</label>
+                    <label lang="de">Kommandozeile</label>
+                    <controller>FroshBash</controller>
+                    <action>index</action>
+                    <class>sprite-cards-stack settings--logfile</class>
+                    <parent identifiedBy="controller">FroshMaintenance</parent>
+                </entry>
+            </children>
         </entry>
     </entries>
 </menu>

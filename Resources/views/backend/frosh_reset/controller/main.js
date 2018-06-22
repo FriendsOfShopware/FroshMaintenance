@@ -4,9 +4,8 @@ Ext.define('Shopware.apps.FroshReset.controller.Main', {
     init: function() {
         var me = this;
         
-        me.subApplication.infoStore = me.getStore('Info');
         me.mainWindow = me.getView('Window').create({
-            infoStore: me.subApplication.infoStore.load()
+            infoStore: me.getStore('Info')
         });
 
         me.mainWindow.show();

@@ -11,10 +11,6 @@ class Shopware_Controllers_Backend_FroshReset extends Shopware_Controllers_Backe
 
         $this->resetService = $this->get('frosh_maintenance.reset');
     }
-    
-    public function indexAction() {
-        $this->View()->loadTemplate('backend/frosh_reset/app.js');
-    }
 
     public function getInfoAction() {
         $data = [
@@ -24,8 +20,7 @@ class Shopware_Controllers_Backend_FroshReset extends Shopware_Controllers_Backe
 
         $this->View()->assign([
             'success' => true,
-            'data' => $data,
-            'total' => count($data),
+            'data' => $data
         ]);
     }
 }

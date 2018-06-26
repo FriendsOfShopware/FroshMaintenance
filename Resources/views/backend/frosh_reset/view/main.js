@@ -37,11 +37,11 @@ Ext.define('Shopware.apps.FroshReset.view.Main', {
         var me = this;
 
         return ['->', {
-            text: 'Alle auswählen',
+            text: '{s namespace="backend/frosh_maintenance/main" name="SelectAllButton"}Select all{/s}',
             action: 'select-all',
             cls: 'secondary'
         },{
-            text: 'Reset',
+            text: '{s namespace="backend/frosh_maintenance/main" name="ResetDataButton"}Reset{/s}',
             action: 'reset-data',
             cls: 'primary'
         }];

@@ -1,6 +1,6 @@
 Ext.define('Shopware.apps.FroshReset.view.Window', {
     extend: 'Enlight.app.Window',
-    title: 'Reset',
+    title: '{s namespace="backend/frosh_maintenance/window" name="Title"}Reset{/s}',
     alias: 'widget.frosh-reset-window',
     id: 'frosh-reset',
     border: false,
@@ -15,7 +15,6 @@ Ext.define('Shopware.apps.FroshReset.view.Window', {
         me.items = [
             { 
                 xtype: 'frosh-reset-main',
-                flex: 1,
                 infoStore: me.infoStore
             }
         ];

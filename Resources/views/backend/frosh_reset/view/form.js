@@ -1,11 +1,11 @@
 Ext.define('Shopware.apps.FroshReset.view.Form', {
     extend: 'Ext.form.Panel',
     alias: 'widget.frosh-reset-form',
-    title: 'Daten zurücksetzen',
+    title: '{s namespace="backend/frosh_maintenance/form" name="Title"}Reset data{/s}',
     autoScroll: true,
     bodyPadding: 10,
     url: '{url controller=FroshReset action=resetData}',
-    waitMsg: 'Daten werden gelöscht',
+    waitMsg: '{s namespace="backend/frosh_maintenance/form" name="WaitMessageText"}Resetting data{/s}',
     waitMsgTarget: true,
     submitEmptyText: false,
 
@@ -28,7 +28,7 @@ Ext.define('Shopware.apps.FroshReset.view.Form', {
             url: me.url,
             waitMsg: me.waitMsg
         });
-        this.form.submit(options);
+        me.form.submit(options);
     },
 
     getItems: function() {
@@ -49,13 +49,13 @@ Ext.define('Shopware.apps.FroshReset.view.Form', {
                 items: [
                     {
                         name: 'reset[article]',
-                        boxLabel: 'Artikel',
-                        supportText: 'Alle Artikel und zugehörigen Tabellen leeren'
+                        boxLabel: '{s namespace="backend/frosh_maintenance/form" name="ProductsBoxLabel"}Products{/s}',
+                        supportText: '{s namespace="backend/frosh_maintenance/form" name="ProductsSupportText"}Clear all products with related tables{/s}'
                     },
                     {
                         name: 'reset[category]',
-                        boxLabel: 'Kategorien',
-                        supportText: 'Alle Kategorien und zugehörigen Tabellen leeren'
+                        boxLabel: '{s namespace="backend/frosh_maintenance/form" name="Categories"}Categories{/s}',
+                        supportText: '{s namespace="backend/frosh_maintenance/form" name="CategoriesSupportText"}Clear all categories with related tables{/s}'
                     },
                 ]
             }

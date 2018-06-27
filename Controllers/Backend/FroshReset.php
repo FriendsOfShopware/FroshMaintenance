@@ -14,8 +14,13 @@ class Shopware_Controllers_Backend_FroshReset extends Shopware_Controllers_Backe
 
     public function getInfoAction() {
         $data = [
-            $this->resetService->getCategoriesCount(),
-            $this->resetService->getProductCount(),         
+            $this->resetService->getCustomerCount(),
+            $this->resetService->getOrderCount(),
+            $this->resetService->getProductCount(),
+            $this->resetService->getNumberrangeCount(),
+            $this->resetService->getStatisticCount(),
+            $this->resetService->getCategoryCount(),
+            $this->resetService->getEmotionWorldCount()
         ];
 
         $this->View()->assign([

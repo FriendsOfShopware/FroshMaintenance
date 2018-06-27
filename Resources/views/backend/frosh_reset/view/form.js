@@ -24,10 +24,12 @@ Ext.define('Shopware.apps.FroshReset.view.Form', {
     submit: function(options) {
         var me = this
             options = options || {};
+
         Ext.applyIf(options, {
             url: me.url,
             waitMsg: me.waitMsg
         });
+        
         me.form.submit(options);
     },
 

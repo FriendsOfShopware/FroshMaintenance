@@ -12,10 +12,6 @@ Ext.define('Shopware.apps.FroshReset.view.Info', {
             Ext.create('Ext.Button', {
                 text: '{s namespace="backend/frosh_maintenance/info" name="RefreshButton"}Refresh{/s}',
                 cls: 'secondary',
-                scope: me,
-                // handler: function() {
-                //     me.refreshResetInfo();
-                // }
                 action: 'refresh'
             })
         ];
@@ -25,12 +21,6 @@ Ext.define('Shopware.apps.FroshReset.view.Info', {
         });
 
         me.callParent(arguments);
-    },
-
-    refreshResetInfo: function() {
-        var me = this;
-
-        me.store.load();
     },
 
     getColumns: function() {

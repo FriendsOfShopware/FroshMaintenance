@@ -23,4 +23,12 @@ class Shopware_Controllers_Backend_FroshReset extends Shopware_Controllers_Backe
             'data' => $data
         ]);
     }
+
+    public function resetDataAction() {
+        //do the reset
+
+        $this->View()->assign([
+            'success' => true
+        ]);
+    }
 }

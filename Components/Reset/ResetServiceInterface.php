@@ -11,5 +11,11 @@ interface ResetServiceInterface {
     public function getStatisticCount();
     public function getCategoryCount();
     public function getEmotionWorldCount();
-    public function resetData($modules);
+    public function resetCustomers();
+    public function resetOrders();
+    public function resetProducts();
+    public function resetNumberRanges();
+    public function resetStatistics();
+    public function resetCategories();
+    public function resetEmotionWorlds();
 }

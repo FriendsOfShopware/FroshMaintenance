@@ -30,8 +30,37 @@ class Shopware_Controllers_Backend_FroshReset extends Shopware_Controllers_Backe
     }
 
     public function resetDataAction() {
-        //do the reset
+        
+        $resetData = $this->Request()->getPost('reset', []);
 
+        if ($resetData['customers'] === 'on') {
+            $this->resetService->resetCustomers();
+        }
+
+        if ($resetData['orders'] === 'on') {
+            $this->resetService->resetOrders();
+        }
+
+        if ($resetData['products'] === 'on') {
+            $this->resetService->resetProducts();
+        }
+
+        if ($resetData['numberranges'] === 'on') {
+            $this->resetService->resetNumberRanges();
+        }
+
+        if ($resetData['statistics'] === 'on') {
+            $this->resetService->resetStatistics();
+        }
+
+        if ($resetData['categories'] === 'on') {
+            $this->resetService->resetCategories();
+        }
+
+        if ($resetData['emotionworlds'] === 'on') {
+            $this->resetService->resetEmotionWorlds();
+        }
+       
         $this->View()->assign([
             'success' => true
         ]);

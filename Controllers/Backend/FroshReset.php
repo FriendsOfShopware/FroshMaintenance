@@ -1,18 +1,28 @@
 <?php
 
-use FroshMaintenance\Components\ResetService;
+use FroshMaintenance\Components\Reset\ResetServiceInterface;
 
-class Shopware_Controllers_Backend_FroshReset extends Shopware_Controllers_Backend_ExtJs 
+class Shopware_Controllers_Backend_FroshReset extends Shopware_Controllers_Backend_ExtJs
 {
+    /**
+     * @var ResetServiceInterface
+     */
     private $resetService;
 
-    public function preDispatch() {
+    /**
+     * Load the Reset service
+     */
+    public function preDispatch()
+    {
         parent::preDispatch();
-
         $this->resetService = $this->get('frosh_maintenance.reset');
     }
 
-    public function getInfoAction() {
+    /**
+     * Returns all information for the module that can be resetted
+     */
+    public function getInfoAction()
+    {
         $data = [
             $this->resetService->getCustomerCount(),
             $this->resetService->getOrderCount(),
@@ -20,49 +30,54 @@ class Shopware_Controllers_Backend_FroshReset extends Shopware_Controllers_Backe
             $this->resetService->getNumberrangeCount(),
             $this->resetService->getStatisticCount(),
             $this->resetService->getCategoryCount(),
-            $this->resetService->getEmotionWorldCount()
+            $this->resetService->getEmotionWorldCount(),
         ];
 
         $this->View()->assign([
             'success' => true,
-            'data' => $data
+            'data' => $data,
         ]);
     }
 
-    public function resetDataAction() {
-        
+    /**
+     * Deletes the selected data 
+     *
+     * @return void
+     */
+    public function resetDataAction()
+    {
         $resetData = $this->Request()->getPost('reset', []);
 
-        if ($resetData['customers'] === 'on') {
+        if ('on' === $resetData['customers']) {
             $this->resetService->resetCustomers();
         }
 
-        if ($resetData['orders'] === 'on') {
+        if ('on' === $resetData['orders']) {
             $this->resetService->resetOrders();
         }
 
-        if ($resetData['products'] === 'on') {
+        if ('on' === $resetData['products']) {
             $this->resetService->resetProducts();
         }
 
-        if ($resetData['numberranges'] === 'on') {
+        if ('on' === $resetData['numberranges']) {
             $this->resetService->resetNumberRanges();
         }
 
-        if ($resetData['statistics'] === 'on') {
+        if ('on' === $resetData['statistics']) {
             $this->resetService->resetStatistics();
         }
 
-        if ($resetData['categories'] === 'on') {
+        if ('on' === $resetData['categories']) {
             $this->resetService->resetCategories();
         }
 
-        if ($resetData['emotionworlds'] === 'on') {
+        if ('on' === $resetData['emotionworlds']) {
             $this->resetService->resetEmotionWorlds();
         }
-       
+
         $this->View()->assign([
-            'success' => true
+            'success' => true,
         ]);
     }
 }

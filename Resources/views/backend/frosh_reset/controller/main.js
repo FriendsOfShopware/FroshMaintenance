@@ -1,5 +1,8 @@
+//{block name="backend/frosh_maintenance/reset/controller/main"}
 Ext.define('Shopware.apps.FroshReset.controller.Main', {
+    
     extend: 'Ext.app.Controller',
+    
     mainWindow: null,
     
     refs: [
@@ -62,3 +65,4 @@ Ext.define('Shopware.apps.FroshReset.controller.Main', {
         me.infoStore.load();
     }
 });
+//{/block}

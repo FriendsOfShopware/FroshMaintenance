@@ -1,12 +1,22 @@
+//{block name="backend/frosh_maintenance/reset/view/form"}
 Ext.define('Shopware.apps.FroshReset.view.Form', {
+    
     extend: 'Ext.form.Panel',
+    
     alias: 'widget.frosh-reset-form',
+    
     title: '{s namespace="backend/frosh_maintenance/form" name="Title"}Reset data{/s}',
+    
     autoScroll: true,
+    
     bodyPadding: 10,
+    
     url: '{url controller=FroshReset action=resetData}',
+    
     waitMsg: '{s namespace="backend/frosh_maintenance/form" name="WaitMessageText"}Resetting data{/s}',
+    
     waitMsgTarget: true,
+    
     submitEmptyText: false,
 
     layout: 'column',
@@ -104,3 +114,4 @@ Ext.define('Shopware.apps.FroshReset.view.Form', {
         ];
     }
 });
+//{/block}

@@ -1,8 +1,14 @@
+//{block name="backend/frosh_maintenance/reset/view/info"}
 Ext.define('Shopware.apps.FroshReset.view.Info', {
+    
     extend: 'Ext.grid.Panel',
+    
     alias: 'widget.frosh-reset-info',
+    
     title: '{s namespace="backend/frosh_maintenance/info" name="Title"}Latest database{/s}',
+    
     layout: 'fit',
+    
     autoScroll: true,
 
     initComponent: function() {
@@ -37,3 +43,4 @@ Ext.define('Shopware.apps.FroshReset.view.Info', {
         }];
     }
 });
+//{/block}

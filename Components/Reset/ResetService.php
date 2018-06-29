@@ -3,21 +3,40 @@
 namespace FroshMaintenance\Components\Reset;
 
 use Doctrine\DBAL\Connection;
-use FroshMaintenance\Components\Reset\ResetServiceInterface;
 
-class ResetService implements ResetServiceInterface {
+class ResetService implements ResetServiceInterface
+{
+    /**
+     * @var Connection
+     */
     private $connection;
+
+    /**
+     * @var Shopware_Components_Snippet_Manager
+     */
     private $snippetManager;
-    
+
+    /**
+     * ResetService constructor
+     *
+     * @param Connection                           $connection
+     * @param \Shopware_Components_Snippet_Manager $snippetManager
+     */
     public function __construct(
-        Connection $connection, 
+        Connection $connection,
         \Shopware_Components_Snippet_Manager $snippetManager
     ) {
         $this->connection = $connection;
         $this->snippetManager = $snippetManager;
     }
 
-    public function getCustomerCount() {
+    /**
+     * {@inheritdoc}
+     *
+     * @return array label and count of the customers module
+     */
+    public function getCustomerCount()
+    {
         $count = $this->getTableCount('s_user');
         $moduleLabel = $this->snippetManager
                 ->getNamespace('backend/frosh_maintenance/reset')
@@ -25,11 +44,17 @@ class ResetService implements ResetServiceInterface {
 
         return [
             'module' => $moduleLabel,
-            'count' => $count
+            'count' => $count,
         ];
     }
 
-    public function getOrderCount() {
+    /**
+     * {@inheritdoc}
+     *
+     * @return array label and count of the orders module
+     */
+    public function getOrderCount()
+    {
         $count = $this->getTableCount('s_order');
         $moduleLabel = $this->snippetManager
                 ->getNamespace('backend/frosh_maintenance/reset')
@@ -37,11 +62,17 @@ class ResetService implements ResetServiceInterface {
 
         return [
             'module' => $moduleLabel,
-            'count' => $count
+            'count' => $count,
         ];
     }
 
-    public function getProductCount() {
+    /**
+     * {@inheritdoc}
+     *
+     * @return array label and count of the products module
+     */
+    public function getProductCount()
+    {
         $count = $this->getTableCount('s_articles');
         $moduleLabel = $this->snippetManager
                 ->getNamespace('backend/frosh_maintenance/reset')
@@ -49,11 +80,17 @@ class ResetService implements ResetServiceInterface {
 
         return [
             'module' => $moduleLabel,
-            'count' => $count
+            'count' => $count,
         ];
     }
 
-    public function getNumberrangeCount() {
+    /**
+     * {@inheritdoc}
+     *
+     * @return array label and count of the number ranges module
+     */
+    public function getNumberrangeCount()
+    {
         $count = $this->getTableCount('s_order_number');
         $moduleLabel = $this->snippetManager
                 ->getNamespace('backend/frosh_maintenance/reset')
@@ -61,11 +98,17 @@ class ResetService implements ResetServiceInterface {
 
         return [
             'module' => $moduleLabel,
-            'count' => $count
+            'count' => $count,
         ];
     }
 
-    public function getStatisticCount() {
+    /**
+     * {@inheritdoc}
+     *
+     * @return array label and count of the visitor statistics
+     */
+    public function getStatisticCount()
+    {
         $count = $this->getTableCount('s_statistics_visitors');
         $moduleLabel = $this->snippetManager
                 ->getNamespace('backend/frosh_maintenance/reset')
@@ -73,11 +116,17 @@ class ResetService implements ResetServiceInterface {
 
         return [
             'module' => $moduleLabel,
-            'count' => $count
+            'count' => $count,
         ];
     }
 
-    public function getCategoryCount() {
+    /**
+     * {@inheritdoc}
+     *
+     * @return array label and count of the category module
+     */
+    public function getCategoryCount()
+    {
         $count = $this->getTableCount('s_categories');
         $moduleLabel = $this->snippetManager
                 ->getNamespace('backend/frosh_maintenance/reset')
@@ -85,11 +134,17 @@ class ResetService implements ResetServiceInterface {
 
         return [
             'module' => $moduleLabel,
-            'count' => $count
+            'count' => $count,
         ];
     }
 
-    public function getEmotionWorldCount() {
+    /**
+     * {@inheritdoc}
+     *
+     * @return array label and count of the emotion worlds module
+     */
+    public function getEmotionWorldCount()
+    {
         $count = $this->getTableCount('s_emotion');
         $moduleLabel = $this->snippetManager
                 ->getNamespace('backend/frosh_maintenance/reset')
@@ -97,19 +152,15 @@ class ResetService implements ResetServiceInterface {
 
         return [
             'module' => $moduleLabel,
-            'count' => $count
+            'count' => $count,
         ];
     }
 
-    private function getTableCount($table, $countLabel = 'id') {
-        $query = $this->connection->createQueryBuilder()
-            ->select(["COUNT({$table}.{$countLabel})"])
-            ->from($table);
-
-        return $query->execute()->fetchAll(\PDO::FETCH_COLUMN);
-    }
-
-    public function resetCustomers() {
+    /**
+     * {@inheritdoc}
+     */
+    public function resetCustomers()
+    {
         $this->connection->executeQuery('SET foreign_key_checks = 0;
             TRUNCATE `s_user`;
             TRUNCATE `s_user_addresses`;
@@ -123,7 +174,11 @@ class ResetService implements ResetServiceInterface {
         );
     }
 
-    public function resetOrders() {
+    /**
+     * {@inheritdoc}
+     */
+    public function resetOrders()
+    {
         $this->connection->executeQuery('SET foreign_key_checks = 0;
             TRUNCATE `s_order`;
             TRUNCATE `s_order_attributes`;
@@ -145,7 +200,11 @@ class ResetService implements ResetServiceInterface {
         );
     }
 
-    public function resetProducts() {
+    /**
+     * {@inheritdoc}
+     */
+    public function resetProducts()
+    {
         $this->connection->executeQuery('SET foreign_key_checks = 0;
             TRUNCATE `s_addon_premiums`;
             TRUNCATE `s_articles`;
@@ -195,7 +254,11 @@ class ResetService implements ResetServiceInterface {
         );
     }
 
-    public function resetNumberRanges() {
+    /**
+     * {@inheritdoc}
+     */
+    public function resetNumberRanges()
+    {
         $this->connection->executeQuery("SET foreign_key_checks = 0;
             DROP TABLE `s_order_number`;
     
@@ -222,7 +285,11 @@ class ResetService implements ResetServiceInterface {
         );
     }
 
-    public function resetStatistics() {
+    /**
+     * {@inheritdoc}
+     */
+    public function resetStatistics()
+    {
         $this->connection->executeQuery('SET foreign_key_checks = 0;
             TRUNCATE `s_statistics_currentusers`;
             TRUNCATE `s_statistics_pool`;
@@ -233,7 +300,11 @@ class ResetService implements ResetServiceInterface {
         );
     }
 
-    public function resetCategories() {
+    /**
+     * {@inheritdoc}
+     */
+    public function resetCategories()
+    {
         $this->connection->executeQuery("SET foreign_key_checks = 0;
             TRUNCATE `s_categories`;
             TRUNCATE `s_categories_attributes`;
@@ -247,7 +318,11 @@ class ResetService implements ResetServiceInterface {
         );
     }
 
-    public function resetEmotionWorlds() {
+    /**
+     * {@inheritdoc}
+     */
+    public function resetEmotionWorlds()
+    {
         $this->connection->executeQuery('SET foreign_key_checks = 0;
             TRUNCATE `s_emotion`;
             TRUNCATE `s_emotion_attributes`;
@@ -256,5 +331,22 @@ class ResetService implements ResetServiceInterface {
             TRUNCATE `s_emotion_element_value`;
             SET foreign_key_checks = 1;'
         );
+    }
+
+    /**
+     * Helper method to get the row count of a specified table
+     *
+     * @param string $table
+     * @param string $countLabel
+     *
+     * @return int
+     */
+    private function getTableCount($table, $countLabel = 'id')
+    {
+        $query = $this->connection->createQueryBuilder()
+            ->select(["COUNT({$table}.{$countLabel})"])
+            ->from($table);
+
+        return $query->execute()->fetchAll(\PDO::FETCH_COLUMN);
     }
 }

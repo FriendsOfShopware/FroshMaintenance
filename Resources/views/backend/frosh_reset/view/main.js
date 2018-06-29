@@ -1,6 +1,10 @@
+//{block name="backend/frosh_maintenance/reset/view/main"}
 Ext.define('Shopware.apps.FroshReset.view.Main', {
+    
     extend: 'Ext.form.Panel',
+    
     alias: 'widget.frosh-reset-main',
+    
     layout: 'vbox',
 
     defaults: {
@@ -47,3 +51,4 @@ Ext.define('Shopware.apps.FroshReset.view.Main', {
         }];
     }
 });
+//{/block}

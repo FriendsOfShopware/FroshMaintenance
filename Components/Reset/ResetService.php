@@ -32,8 +32,6 @@ class ResetService implements ResetServiceInterface
 
     /**
      * {@inheritdoc}
-     *
-     * @return array label and count of the customers module
      */
     public function getCustomerCount()
     {
@@ -50,8 +48,6 @@ class ResetService implements ResetServiceInterface
 
     /**
      * {@inheritdoc}
-     *
-     * @return array label and count of the orders module
      */
     public function getOrderCount()
     {
@@ -68,8 +64,6 @@ class ResetService implements ResetServiceInterface
 
     /**
      * {@inheritdoc}
-     *
-     * @return array label and count of the products module
      */
     public function getProductCount()
     {
@@ -86,8 +80,6 @@ class ResetService implements ResetServiceInterface
 
     /**
      * {@inheritdoc}
-     *
-     * @return array label and count of the number ranges module
      */
     public function getNumberrangeCount()
     {
@@ -104,8 +96,6 @@ class ResetService implements ResetServiceInterface
 
     /**
      * {@inheritdoc}
-     *
-     * @return array label and count of the visitor statistics
      */
     public function getStatisticCount()
     {
@@ -122,8 +112,6 @@ class ResetService implements ResetServiceInterface
 
     /**
      * {@inheritdoc}
-     *
-     * @return array label and count of the category module
      */
     public function getCategoryCount()
     {
@@ -140,8 +128,6 @@ class ResetService implements ResetServiceInterface
 
     /**
      * {@inheritdoc}
-     *
-     * @return array label and count of the emotion worlds module
      */
     public function getEmotionWorldCount()
     {
